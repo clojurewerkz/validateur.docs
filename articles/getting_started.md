@@ -6,7 +6,7 @@ layout: article
 ## About this guide
 
 This guide combines an overview of Validateur with a quick tutorial that helps you to get started with it.
-It should take about 19 minutes to read and study the provided code examples. This guide covers:
+It should take just a few minutes to read and study the provided code examples. This guide covers:
 
  * Features of Validateur
  * Clojure version requirement
