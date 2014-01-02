@@ -34,7 +34,7 @@ defining a Clojure function that conforms to a straightforward contract.
 
 ## Supported Clojure versions
 
-Validateur is built from the ground up for Clojure 1.3 and later.
+Validateur requires Clojure 1.4+.
 
 
 ## Adding Validateur Dependency To Your Project
