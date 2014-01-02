@@ -43,7 +43,7 @@ Validateur artifacts are [released to Clojars](https://clojars.org/com.novembera
 
 ### With Leiningen
 
-    [com.novemberain/validateur "1.2.0"]
+    [com.novemberain/validateur "1.6.0"]
 
 ### With Maven
 
@@ -56,7 +56,7 @@ And then the dependency:
     <dependency>
       <groupId>com.novemberain</groupId>
       <artifactId>validateur</artifactId>
-      <version>1.2.0</version>
+      <version>1.6.0</version>
     </dependency>
 
 It is recommended to stay up-to-date with new versions. New releases and important changes are announced [@ClojureWerkz](http://twitter.com/ClojureWerkz).
