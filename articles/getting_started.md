@@ -48,15 +48,22 @@ Validateur artifacts are [released to Clojars](https://clojars.org/com.novembera
 
 Add Clojars repository definition to your `pom.xml`:
 
-{% gist 65642c4b53d26539e5f6 %}
+``` xml
+<repository>
+  <id>clojars.org</id>
+  <url>http://clojars.org/repo</url>
+</repository>
+```
 
 And then the dependency:
 
-    <dependency>
-      <groupId>com.novemberain</groupId>
-      <artifactId>validateur</artifactId>
-      <version>1.7.0</version>
-    </dependency>
+``` xml
+<dependency>
+  <groupId>com.novemberain</groupId>
+  <artifactId>validateur</artifactId>
+  <version>1.7.0</version>
+</dependency>
+```
 
 It is recommended to stay up-to-date with new versions. New releases and important changes are announced [@ClojureWerkz](http://twitter.com/ClojureWerkz).
 
@@ -64,17 +71,46 @@ It is recommended to stay up-to-date with new versions. New releases and importa
 
 With Validateur you define validation sets that compose one or more validators:
 
-{% gist 4d1178a2e4b0065c0a08 %}
+``` clojure
+(ns my.app
+  (:use validateur.validation))
+ 
+(validation-set
+  (presence-of :email)
+  (presence-of [:address :street])
+  (presence-of [:card :cvc]))
+```
 
 Any function that returns either a pair of `[true #{}]` to indicate successful validation or `[false set-of-validation-error-messages]` to indicate validation failure and return error messages can be used as a validator. Validation sets are then passed to `validateur.validation/valid?` together with a map to validate:
 
-{% gist 7c62a3e0ca96653b3a8a %}
+``` clojure
+(ns my.app
+  (:use validateur.validation))
+ 
+(let [v (validation-set
+         (presence-of :name)
+         (presence-of :age))]
+  (println (valid? v {:name "Joe" :age 28}))
+  (println (invalid? v {:name "Joe" :age 28}))
+  (println (valid? v {:name "Joe"})))
+```
 
 `validateur.validation/invalid?` is a complement to `validateur.validation/valid?`.
 
 To retrive a map of keys to error messages simply call the validator with a map:
 
-{% gist aea2139f9f0c23903ecc %}
+``` clojure
+(ns my.app
+  (:require [validateur.validation :refer [validation-set presence-of format-of]]))
+ 
+(let [v (validation-set
+         (presence-of :user-name)
+         (format-of :user-name
+                    :format #"^[^\s]*$"
+                    :message "may not contain whitespace"))]
+  (v {:user-name "99 bananas"}))
+;= {:user-name #{"may not contain whitespace"}}
+```
 
 ## Tell Us What You Think!
 
