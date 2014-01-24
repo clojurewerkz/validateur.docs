@@ -19,8 +19,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## What version of Validateur does this guide cover?
 
-This guide covers Validateur 1.2.x.
-
+This guide covers Validateur 1.7.x.
 
 
 ## Validateur Overview
@@ -61,23 +60,21 @@ And then the dependency:
 
 It is recommended to stay up-to-date with new versions. New releases and important changes are announced [@ClojureWerkz](http://twitter.com/ClojureWerkz).
 
-
-
 ## Usage
 
 With Validateur you define validation sets that compose one or more validators:
 
 {% gist 4d1178a2e4b0065c0a08 %}
 
-Any function that returns either a pair of `[true #{}]` to indicate successful validation or `[false set-of-validation-error-messages]`
-
-to indicate validation failure and return error messages can be used as a validator. Validation sets are then passed to
-`validateur.validation/valid?` together with a map to validate:
+Any function that returns either a pair of `[true #{}]` to indicate successful validation or `[false set-of-validation-error-messages]` to indicate validation failure and return error messages can be used as a validator. Validation sets are then passed to `validateur.validation/valid?` together with a map to validate:
 
 {% gist 7c62a3e0ca96653b3a8a %}
 
 `validateur.validation/invalid?` is a complement to `validateur.validation/valid?`.
 
+To retrive a map of keys to error messages simply call the validator with a map:
+
+{% gist aea2139f9f0c23903ecc %}
 
 ## Tell Us What You Think!
 
