@@ -73,7 +73,7 @@ With Validateur you define validation sets that compose one or more validators:
 
 ``` clojure
 (ns my.app
-  (:use validateur.validation))
+  (:require [validateur.validation :refer :all]))
  
 (validation-set
   (presence-of :email)
@@ -85,7 +85,7 @@ Any function that returns either a pair of `[true #{}]` to indicate successful v
 
 ``` clojure
 (ns my.app
-  (:use validateur.validation))
+  (:require [validateur.validation :refer :all]))
  
 (let [v (validation-set
          (presence-of :name)
