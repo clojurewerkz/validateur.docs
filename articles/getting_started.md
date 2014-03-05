@@ -19,7 +19,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## What version of Validateur does this guide cover?
 
-This guide covers Validateur 1.7.x.
+This guide covers Validateur 2.0.x, including pre-release versions.
 
 
 ## Validateur Overview
@@ -33,7 +33,7 @@ defining a Clojure function that conforms to a straightforward contract.
 
 ## Supported Clojure versions
 
-Validateur requires Clojure 1.4+.
+Validateur requires Clojure 1.4+ or ClojureScript 0.0-2138+.
 
 
 ## Adding Validateur Dependency To Your Project
@@ -42,7 +42,7 @@ Validateur artifacts are [released to Clojars](https://clojars.org/com.novembera
 
 ### With Leiningen
 
-    [com.novemberain/validateur "1.7.0"]
+    [com.novemberain/validateur "2.0.0-beta3"]
 
 ### With Maven
 
@@ -61,7 +61,7 @@ And then the dependency:
 <dependency>
   <groupId>com.novemberain</groupId>
   <artifactId>validateur</artifactId>
-  <version>1.7.0</version>
+  <version>2.0.0-beta3</version>
 </dependency>
 ```
 
