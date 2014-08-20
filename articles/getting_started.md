@@ -112,9 +112,54 @@ To retrive a map of keys to error messages simply call the validator with a map:
 ;= {:user-name #{"may not contain whitespace"}}
 ```
 
+### Validating Nested Attributes
+
+`nested` is a validator runner for nested attributes:
+
+``` clojure
+(require '[validateur.validation :refer :all])
+
+(let [v (vr/nested :user (vr/validation-set
+                            (vr/presence-of :name)
+                            (vr/presence-of :age)))
+        extra-nested (vr/nested [:user :profile]
+                                (vr/validation-set
+                                 (vr/presence-of :age)
+                                 (vr/presence-of [:birthday :year])))]
+  (v {})
+  ;= {[:user :age] #{"can't be blank"}
+      [:user :name] #{"can't be blank"}}
+  (v {:user {:name "name"}})
+  ;= {[:user :age] #{"can't be blank"}}
+  (extra-nested {:user {:profile {:age 10
+                                  :birthday {:year 2004}}}})
+  ;= {}
+  (extra-nested {:user {:profile {:age 10}}})
+  ;= {[:user :profile :birthday :year] #{"can't be blank"}}
+```
+
+### validate-by
+
+`validate-by` is a validator function that returns a function that,
+when given a map, will validate that the + value of the attribute in
+that map is one of the given:
+
+``` clojure
+(require '[validateur.validation :refer :all])
+
+(validation-set
+   (presence-of :name)
+   (presence-of :age)
+   (validate-by [:user :name] not-empty :message \"Username can't be empty!\"))
+```
+
+
 ### unnest
 
-`unnest` is a helper function useful for building UIs that validate on the fly. Here's a basic example. Let's write some code to render a UI off of a nested map and build up live validation for that map off of component validators. Here are the components:
+`unnest` is a helper function useful for building UIs that validate on
+the fly. Here's a basic example. Let's write some code to render a UI
+off of a nested map and build up live validation for that map off of
+component validators. Here are the components:
 
 ```clojure
 (def profile-validator
