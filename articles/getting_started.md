@@ -42,7 +42,7 @@ Validateur artifacts are [released to Clojars](https://clojars.org/com.novembera
 
 ### With Leiningen
 
-    [com.novemberain/validateur "2.2.0"]
+    [com.novemberain/validateur "2.3.1"]
 
 ### With Maven
 
@@ -61,7 +61,7 @@ And then the dependency:
 <dependency>
   <groupId>com.novemberain</groupId>
   <artifactId>validateur</artifactId>
-  <version>2.2.0</version>
+  <version>2.3.1</version>
 </dependency>
 ```
 
