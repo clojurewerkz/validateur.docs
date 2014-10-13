@@ -81,7 +81,7 @@ With Validateur you define validation sets that compose one or more validators:
   (presence-of [:card :cvc]))
 ```
 
-Any function that returns either a pair of `[true #{}]` to indicate successful validation or `[false set-of-validation-error-messages]` to indicate validation failure and return error messages can be used as a validator. Validation sets are then passed to `validateur.validation/valid?` together with a map to validate:
+Any function that returns either a pair of `[true {}]` to indicate successful validation or `[false map-of-keys-to-sets-of-errors]` to indicate validation failure and return error messages can be used as a validator. Validation sets are then passed to `validateur.validation/valid?` together with a map to validate:
 
 ``` clojure
 (ns my.app
