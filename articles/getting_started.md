@@ -33,7 +33,7 @@ defining a Clojure function that conforms to a straightforward contract.
 
 ## Supported Clojure versions
 
-Validateur requires Clojure 1.4+ or ClojureScript 0.0-2138+.
+Validateur requires Clojure 1.6+ or ClojureScript 0.0-2138+.
 
 
 ## Adding Validateur Dependency To Your Project
