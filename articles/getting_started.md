@@ -19,7 +19,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## What version of Validateur does this guide cover?
 
-This guide covers Validateur 2.2.x, including pre-release versions.
+This guide covers Validateur 2.4.x, including pre-release versions.
 
 
 ## Validateur Overview
