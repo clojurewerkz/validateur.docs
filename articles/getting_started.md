@@ -19,7 +19,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## What version of Validateur does this guide cover?
 
-This guide covers Validateur 2.4.x, including pre-release versions.
+This guide covers Validateur 2.5.x, including pre-release versions.
 
 
 ## Validateur Overview
@@ -42,7 +42,7 @@ Validateur artifacts are [released to Clojars](https://clojars.org/com.novembera
 
 ### With Leiningen
 
-    [com.novemberain/validateur "2.4.2"]
+    [com.novemberain/validateur "2.5.0"]
 
 ### With Maven
 
@@ -61,7 +61,7 @@ And then the dependency:
 <dependency>
   <groupId>com.novemberain</groupId>
   <artifactId>validateur</artifactId>
-  <version>2.4.2</version>
+  <version>2.5.0</version>
 </dependency>
 ```
 
